@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<center>
+    <br>
+    <h3>College List</h3>
+    <br>
+
+
+    <table width="50%" cellpadding="3px" >
+        <tr>
+            <td>
+                {% if 'onlineapp.add_college' in user_permissions %}
+                    <h6>
+                        <a href="/onlineapp/college/add/">+Add College</a>
+                    </h6>
+                {% endif %}
+
+            </td>
+        </tr>
+        <tr>
+            <th>College Name</th>
+            <th>Acronym</th>
+            {% if 'onlineapp.change_college' in user_permissions and 'onlineapp.delete_college' in user_permissions %}
+                <th>Action</th>
+            {% endif %}
+
+
+        </tr>
+        {% for college in collegeList %}
+        <tr>
+            <td>
+                {{college.name}}
+            </td>
+            <td>
+                <a href="/onlineapp/colleges/{{college.id}}/">{{college.acronym}}</a>
+            </td>
+
+            {% if 'onlineapp.change_college' in user_permissions and 'onlineapp.delete_college' in user_permissions %}
+              <td>
+                <a href="/onlineapp/college/edit/{{college.id}}/">Edit</a>
+                    /
+                    <form id= {{college.id}} method="post" action="/onlineapp/college/delete/{{college.id}}/">
+                        {% csrf_token %}
+                        <a href = "#" onclick="document.getElementById({{college.id}}).submit();">Delete</a>
+                    </form>
+              </td>
+            {% endif %}
+
+
+
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br><br>
+
+</center>
+
+
+{% endblock %}

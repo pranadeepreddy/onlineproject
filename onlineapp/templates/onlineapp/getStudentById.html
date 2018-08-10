@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <table cellpadding="3px" width="60%">
+        <caption><font size="6px"><b>Student Data</b></font></caption>
+
+        <tr  bgcolor="#80ced6">
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Acronym</th>
+        </tr>
+        {% for name in studentList %}
+        <tr bgcolor="#d5f4e6">
+            <td>
+                {{name.name}}
+            </td>
+            <td>
+                {{name.email}}
+            </td>
+            <td>
+                {{name.college__acronym}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+
+
+</body>
+</html>

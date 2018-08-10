@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<center>
+
+
+</center>
+
+<div class="container">
+    <br>
+    <h3>Add/Edit College</h3>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="btn btn-primary" value="Save">
+    </form>
+</div>
+
+{% endblock %}

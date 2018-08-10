@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<center>
+    <br>
+    <h3>
+        {{college.name}} Students Data
+    </h3>
+    <br>
+
+    <table cellpadding="3px" width="80%">
+        <tr>
+            <td>
+                {% if 'onlineapp.add_student' in user_permissions %}
+                    <h6>
+                    <a href="/onlineapp/colleges/{{college.id}}/add/">+Add Student</a>
+                 </h6>
+                {% endif %}
+
+            </td>
+        </tr>
+        <tr  bgcolor>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Marks</th>
+            {% if 'onlineapp.change_student' in user_permissions and 'onlineapp.delete_student' in user_permissions %}
+                <th>Action</th>
+            {% endif %}
+        </tr>
+        {% for student in studentList %}
+        <tr bgcolor>
+            <td>
+                {{student.name}}
+            </td>
+            <td>
+                {{student.email}}
+            </td>
+            <td>
+                <!--<button onclick = "alert('{{name.0}} got {{name.3}} marks');window.close();">show marks</button>-->
+                {{student.mocktest1.total}}
+            </td>
+
+            {% if 'onlineapp.change_student' in user_permissions and 'onlineapp.delete_student' in user_permissions %}
+                <td>
+                <a href="/onlineapp/colleges/{{college.id}}/edit/{{student.id}}/">Edit</a>
+                /
+                <form id= {{student.id}} method="post" action="/onlineapp/colleges/{{student.college.id}}/delete/{{student.id}}/">
+                    {% csrf_token %}
+                     <a href = "#" onclick="document.getElementById({{student.id}}).submit();">Delete</a>
+                </form>
+            </td>
+            {% endif %}
+
+
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+
+{% endblock %}
+
+
+
