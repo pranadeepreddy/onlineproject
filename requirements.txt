@@ -39,7 +39,7 @@ dask==0.14.3
 datashape==0.5.4
 decorator==4.2.1
 distributed==1.16.3
-Django==2.0.5
+Django==2.2.10
 django-debug-toolbar==1.9.1
 docutils==0.13.1
 entrypoints==0.2.2
