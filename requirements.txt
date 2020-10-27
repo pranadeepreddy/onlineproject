@@ -27,7 +27,7 @@ comtypes==1.1.2
 conda==4.5.4
 configparser==3.5.0
 contextlib2==0.5.5
-cryptography==2.1.4
+cryptography==3.2
 cycler==0.10.0
 Cython==0.25.2
 cytoolz==0.8.2
