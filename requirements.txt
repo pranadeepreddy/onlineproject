@@ -38,7 +38,7 @@ dash-renderer==0.11.3
 dask==0.14.3
 datashape==0.5.4
 decorator==4.2.1
-distributed==1.16.3
+distributed==2021.10.0
 Django==2.0.5
 django-debug-toolbar==1.9.1
 docutils==0.13.1
